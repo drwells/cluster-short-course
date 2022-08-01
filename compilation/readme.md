@@ -27,3 +27,15 @@ Try looking at some options with
 
 The installation directory is specified with `--prefix`. See if you can work
 around the bugs!
+
+### librarytwo: use CMake
+This one is more straightforward, but we need to provide the path of
+`libraryone` to CMake. We can set up the project in a similar way:
+```
+mkdir build
+cd build
+cmake -DLIBRARYONE_ROOT=/path/to/libraryone \
+      -DCMAKE_INSTALL_PREFIX=/path/to/install \
+      ../
+make install
+```

@@ -22,7 +22,7 @@ Print "hello, world" to the screen.
 
 ## 2. loop.sh
 ### Goal
-print 
+print
     car car car car boat car boat car plane
 
 each on new lines, to the screen.
@@ -95,13 +95,13 @@ zero-sonnets.
 * You will either need to use `cd` or get crafty with `basename` here.
 * `find` is a very powerful program: use the `-exec` flag, rather than a
   for-loop, for this one.
-  
+
   Try something like
 ```
 find ./sonnets -exec bash -c 'FILENAME={}; ....'
 ```
   to start a shell every time `find` does its thing. The `FILENAME={}` defines a new variable named `FILENAME` and sets it equal to whatever `find` found.
-  
+
   Single quotes and double quotes do different things in shell scripting! try
 ```
 echo '$PATH'

@@ -1,6 +1,23 @@
 # Module 1: Shell Scripts
 
 ## Preliminaries
+The shell is the main way we interact with a computer on the command line: one
+popular shell is the "bourne-again shell" (a pun on the original Bourne shell).
+Others include the c-shell (csh and tcsh), the z-shell (zsh), the friendly
+interactive shell (fish), and many more.
+
+Back in the day (1970) one interacted with a computer through a shell and only a
+shell: the name was picked to imply something that wraps around the computer
+operating system and separates it from the outside world. Nowadays most people
+use graphical user interfaces, but for various reasons shells are still the
+preferred environment for clusters and other machines that are accessed over a
+network.
+
+One can work interactively with a shell, but a much more powerful way to use a
+shell is to write a script, i.e., a set of commands the shell will execute in
+sequence. Like a normal programming language these can include variables, loops,
+functions, etc.
+
 All shell scripts should start with
 ```bash
 #!/bin/bash
@@ -13,6 +30,35 @@ This does two things:
 2. Shell scripts are difficult to debug. The second line sets up the script to
    fail immediately for most errors, like failing commands or undefined
    variables.
+
+Some things shell scripting is useful for:
+* Suppose the program you are running outputs a drag coefficient every 100 time
+  steps in a giant logfile. How can you collect all of the times and drag
+  coefficients without manually going through the file?
+* What's an effective way to set up a program to run over a wide range of
+  parameters in a loop? I will give an example here of running the same program
+  with 40 different configurations by using simple for-loops and `seq` here.
+
+## 0. Work interactively and break the shell
+Like some programming languages (php, perl) shell variables start with a `$`
+character (in fact, those languages acquired this feature from shell scripts!).
+Try running these three commands:
+```
+echo PATH
+echo $PATH
+echo '$PATH'
+echo "$PATH"
+```
+What happens?
+
+Now, to break the current login session, try
+```
+PATH=""
+echo "$PATH"
+ls
+```
+What happens? Everything should be totally broken at this point - you can log
+out and back in again to get a new shell with a not-broken `$PATH`.
 
 ## 1. hello-world.sh
 ### Goal
@@ -151,3 +197,7 @@ solutions.
 * tr
 * chmod (you will need it to run the script)
 * pipes
+
+## Wrapping things up: moving files back and forth
+To conclude this module, use `tar` and `scp` to move files from the VCL machine
+to your own.

@@ -163,7 +163,7 @@ no-love-sonnets. There should be 56 of them.
 Here, we need to handle failure in a careful way: the `set -eou pipefail` will
 cause a script to immediately stop if there is any error - that includes `grep`
 failing to find a match. In this case, we want to handle the 'failure'
-ourselves. The best way to do this is to turn off the eror checking with `set
+ourselves. The best way to do this is to turn off the error checking with `set
 +e` and then turn it on again with `set -e` once we are done.
 ### Commands
 * mkdir

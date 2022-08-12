@@ -87,7 +87,7 @@ Same as loop, but capitalize the words without hard-coding the capitalizations.
 
 ## 4. loop-unique.sh
 ### Goal
-Same as loop, but capitalize the words without hard-coding the capitalizations.
+Same as loop, but only print each word exactly once by filtering the output.
 ### Commands
 * echo, or printf
 * for-loops
@@ -108,9 +108,10 @@ Write each of Shakespeare's sonnets into a separate file for later reading.
 * tail
 ### Hints
 * This script requires a regular expression for grep: we want to match the first
-  occurance of a string. To do this, use "^X" where X is the string which should
-  start the line.
-* Each sonnet is exactly fourteen lines long. Check out the `-a` option for
+  occurance of a string. To do this, use "^X\b" where X is the string which
+  should start the line. Here `^` means "the start of the line" and `\b` means
+  "the end of a word" (so a space, line ending, or punctuation).
+* Each sonnet is exactly fourteen lines long. Check out the `-A` option for
   grep.
 
 ## 6. love-sonnets.sh
